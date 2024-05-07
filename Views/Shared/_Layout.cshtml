@@ -1,0 +1,44 @@
+﻿<html>
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="@ViewBag.key" />
+        <meta name="description" content="@ViewBag.des" />
+        <title>@ViewBag.Title</title>
+       
+        <link href="~/Content/forum.css" rel="stylesheet" />
+      @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    
+	@*@Scripts.Render("~/bundles/jquery")*@
+	
+	
+	
+	<link href="@Url.Content("~/Content/kendo.compatibility.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.default.min.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/kendo/2014.2.716/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.all.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.aspnetmvc.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+            @RenderSection("scripts", required: false)
+</head>
+<body >
+  
+<div class="container"  >
+    <div class="head" ></div>
+    <div  class="rightmenu" >
+     @Html.Partial("~/Views/Shared/_LoginPartial.cshtml")
+       @Html.Partial("~/Views/Shared/_PartialPage1.cshtml")
+    </div>
+    <div  class="content" >
+    @RenderBody()
+        </div>
+</div>
+     
+    
+        
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@model forum.Models.Modelviwe.settingview
+
+@{
+    ViewBag.Title = "setting";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>settingview</legend>
+
+        <div class="editor-label">
+            @Html.Label("number of content per page")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.perpage)
+            @Html.ValidationMessageFor(model => model.perpage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sitename)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sitename)
+            @Html.ValidationMessageFor(model => model.sitename)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.keywords)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.keywords)
+            @Html.ValidationMessageFor(model => model.keywords)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descriptions)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.descriptions)
+            @Html.ValidationMessageFor(model => model.descriptions)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index","home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

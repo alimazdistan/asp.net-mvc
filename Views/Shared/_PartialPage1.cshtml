@@ -1,0 +1,19 @@
+﻿<br />
+@Html.ActionLink("home","index","home")<br />
+@if(Request.IsAuthenticated){
+@Html.ActionLink("profile","profile","user")<br />
+@Html.ActionLink("change image","imagechange","user")<br />
+@Html.ActionLink("change password","passwordchange","user")<br />    
+}
+@{
+    forum.myrole role = new forum.myrole();
+   bool admin= role.IsUserInRole(User.Identity.Name, "2");
+     
+ }
+@if (admin)
+{
+@Html.ActionLink("cat managment","index","cat")<br />
+@Html.ActionLink("topic managment","index","topic")<br />
+@Html.ActionLink("user managment ","index","user")<br />
+@Html.ActionLink("setting","index","setting")<br />
+}

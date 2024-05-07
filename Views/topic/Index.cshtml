@@ -1,0 +1,82 @@
+﻿@model IEnumerable<forum.Models.Topic>
+
+@{
+    ViewBag.Title = "topics";
+}
+
+<h2>topics</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.IsShow)
+        </th>
+       
+       
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </th>
+        <th>
+            &nbsp Position
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.IsShow)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdate)
+        </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Position)
+            </td>       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "sabt" })
+        </td>
+    </tr>
+}
+
+</table>
+ @for(int count=1;count<=Convert.ToInt32(ViewData["count"]);++count){
+  <a href="~/topic/index/@count">    <div class="pagenumber"> @count</div></a>
+        
+    }
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".sabt").click(function (e) {
+            var answer = confirm("are you sure?")
+            if (answer) {
+            }
+            else
+                
+                e.preventDefault()
+
+        });
+
+    });
+</script>
+
+
+
+    }

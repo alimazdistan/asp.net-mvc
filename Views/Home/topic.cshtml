@@ -1,0 +1,43 @@
+﻿@model IEnumerable<forum.Models.Topic>
+
+@{
+    
+}
+
+<h2>topics</h2>
+<h4>@ViewData["catname"]</h4>
+
+
+
+
+@foreach (var item in Model) {
+     <div class="topic">
+        
+           <b>
+            @Html.ActionLink(item.Title,"comment",new {id=item.ID})
+
+           </b>
+        <br />
+         
+            @Html.DisplayFor(modelItem => item.Descriptin)
+             
+        <br />
+        
+      
+       
+       
+        <p>last update: @Html.DisplayFor(modelItem => item.LastUpdate)</p>
+           
+        
+       
+       
+       
+    </div>
+}
+<br /><br />
+ @for(int count=1;count<=Convert.ToInt32(ViewData["count"]);++count){
+  <a href="~/home/topic/@ViewData["id"]/@count">    <div class="pagenumber"> @count</div></a>
+        
+    }
+
+

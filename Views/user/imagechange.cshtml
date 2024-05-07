@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "imagechange";
+}
+
+<h2>imagechange</h2>
+@using (Html.BeginForm("imagechange", "user", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary("")
+    <div>
+        <input type="file" name="image" />
+    </div>
+    <div>
+        <input type="submit" value="send" />
+    </div>
+}

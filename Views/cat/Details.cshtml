@@ -1,0 +1,71 @@
+﻿@model forum.Models.Cat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cat</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Keywords)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Keywords)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descriptin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descriptin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsShow)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsShow)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Position)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Position)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

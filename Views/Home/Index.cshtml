@@ -1,0 +1,34 @@
+﻿@model IEnumerable<forum.Models.Cat>
+
+@{
+    
+}
+
+<h2>categories</h2>
+<h3>@Html.ValidationMessage("","not active")</h3>
+
+
+   
+
+@foreach (var item in Model) {
+    <div class="topic">
+        
+       @Html.ActionLink( item.Name,"topic",new {id=item.ID})
+        <br />
+        
+        
+            @Html.DisplayFor(modelItem => item.Descriptin)
+        
+        
+        
+        
+      
+    </div>
+}
+<br />
+ @for(int count=1;count<=Convert.ToInt32(ViewData["count"]);++count){
+  <a href="~/home/index/@count">    <div class="pagenumber"> @count</div></a>
+        
+    }
+
+

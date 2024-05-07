@@ -1,0 +1,72 @@
+﻿@model IEnumerable<forum.Models.Cat>
+
+@{
+    ViewBag.Title = "categories";
+}
+
+<h2>categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.IsShow)
+        </th>
+        <th>
+         
+         &nbsp  position
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.IsShow)
+        </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.Position)
+         </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "sabt" })
+        </td>
+    </tr>
+}
+
+</table>
+ @for(int count=1;count<=Convert.ToInt32(ViewData["count"]);++count){
+  <a href="~/cat/index/@count">    <div class="pagenumber"> @count</div></a>
+        
+    }
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".sabt").click(function (e) {
+            var answer = confirm("are you sure?")
+            if (answer) {
+            }
+            else
+                
+                e.preventDefault()
+
+        });
+
+    });
+</script>
+
+
+
+    }

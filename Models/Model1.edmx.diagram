@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="009381d5a62d4309b195470fda599321" Name="Diagram1">
+        <EntityTypeShape EntityType="ForumModel.Cat" Width="1.5" PointX="2.0481147496253786" PointY="10.557009746579924" />
+        <EntityTypeShape EntityType="ForumModel.Comment" Width="1.5" PointX="7.5384613720413576" PointY="9.4541710361159268" />
+        <EntityTypeShape EntityType="ForumModel.Role" Width="1.5" PointX="11.651520352648348" PointY="6.8525485577306471" />
+        <EntityTypeShape EntityType="ForumModel.Topic" Width="1.5" PointX="10.818048761607169" PointY="16.400683723576684" />
+        <EntityTypeShape EntityType="ForumModel.User" Width="1.5" PointX="0.92625851040997476" PointY="0.49834495806058166" />
+        <AssociationConnector Association="ForumModel.FK_Cat_User" />
+        <AssociationConnector Association="ForumModel.FK_Topics_Cat" />
+        <AssociationConnector Association="ForumModel.FK_Comment_Topics" />
+        <AssociationConnector Association="ForumModel.FK_Comment_User" />
+        <AssociationConnector Association="ForumModel.FK_User_Roles" />
+        <AssociationConnector Association="ForumModel.FK_Topics_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

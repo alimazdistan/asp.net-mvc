@@ -1,0 +1,105 @@
+﻿@model IEnumerable<forum.Models.Modelviwe.commentview>
+
+@{
+    forum.myrole role = new forum.myrole();
+   bool admmin= role.IsUserInRole(User.Identity.Name, "2");
+   // ViewBag.Title = "comment";
+}
+
+<h4>@ViewBag.Title <- @ViewData["catname"]</h4>
+
+@Html.ActionLink("create", "create", "comment", new { id = ViewContext.RouteData.Values["id"] },null)
+
+
+
+
+   
+
+@foreach (var item in Model)
+{
+    <div class="comment">
+         <div class="rightcomment" >
+            <div class="username">
+            @Html.DisplayFor(modelItem => item.username)<br />
+        </div>
+        
+           <div style="margin-right:4px">
+            <img src="@Url.Content(item.image)" style="width:150px;height:200px" /></div>
+        </div>
+        <div class="leftcomment">
+          <b> @Html.DisplayFor(modelItem => item.title)</b> 
+        <br />
+           <div class="con" >
+            @Html.Raw(Server.HtmlDecode(item.Content))
+                </div> 
+           
+        
+      
+        
+            <br />
+            
+            @Html.ActionLink("response", "response", "comment", new { id = item.id }, null) 
+            @if (User.Identity.Name == item.username || admmin == true)
+            {
+               @Html.ActionLink("Edit", "Edit","comment", new { id=item.id },null) 
+            @Html.ActionLink("Delete", "Delete", "comment", new { id = item.id }, new { @class = "sabt" })
+                @Html.DisplayFor(o => item.position)
+            }
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<div>
+    @for (int count = 1; count <= Convert.ToInt32(ViewData["count"]); ++count)
+    {
+  <a href="~/home/comment/@ViewData["topicid"]/@count">    <div class="pagenumber"> @count</div></a>
+        
+    }
+    
+</div>
+<br />
+@if (Request.IsAuthenticated)
+{
+<div id="comment" style="margin-top:25px">
+
+@Html.ActionLink("create", "create", "comment", new { id = ViewContext.RouteData.Values["id"] }, null)
+    
+@*@using (Html.BeginForm()){
+@Html.Label("title")
+@Html.TextBox("mytitle")
+
+  @Html.Kendo().Editor().Name("commet").Encode(true).Tools(tools => tools.Clear()
+                    .Bold().Italic().Underline().FontSize().FontColor().JustifyLeft()
+                    .JustifyCenter().JustifyRight().JustifyFull().InsertUnorderedList()
+                    .InsertOrderedList().Indent().CreateLink().ViewHtml().InsertImage())
+    @Html.ValidationMessage("")
+<input type="submit" value="send" />
+  
+}*@</div>
+}
+else
+{
+    <p>for insert comment loin</p>
+}
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".sabt").click(function (e) {
+            var answer = confirm("are you sure?")
+            if (answer) {
+            }
+            else
+                
+                e.preventDefault()
+
+        });
+
+    });
+</script>
+
+
+
+    }
+
